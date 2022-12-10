@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "14941732790",
+    "project_id": "uta-housing-e3107",
+    "storage_bucket": "uta-housing-e3107.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14941732790:android:74920783fa9d4f59b74b17",
+        "android_client_info": {
+          "package_name": "com.flutterflow.homeU"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14941732790-8hr3545n52dm49ogi4q259o5ul4vud10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC65k4dkz6W7hop3d1Cj0R4Sj3wqt6gnAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14941732790-8hr3545n52dm49ogi4q259o5ul4vud10.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "14941732790-mav7ke5blbbmlrmps7mu1e89trpfe75t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.homeU"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

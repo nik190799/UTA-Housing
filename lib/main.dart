@@ -90,10 +90,14 @@ class _MyAppState extends State<MyApp> {
       home: initialUser == null || displaySplashImage
           ? Builder(
               builder: (context) => Container(
-                color: Colors.transparent,
-                child: Image.asset(
-                  'assets/images/splashScreen@2x.png',
-                  fit: BoxFit.cover,
+                color: Colors.black,
+                child: Center(
+                  child: Image.asset(
+                    'assets/images/uta-logo.png',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             )
@@ -143,7 +147,7 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
         unselectedItemColor: FlutterFlowTheme.of(context).grayIcon,
         showSelectedLabels: true,

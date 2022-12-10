@@ -240,94 +240,86 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                     height: 500,
                                     child: Stack(
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 50),
-                                          child: PageView(
-                                            controller: pageViewController1 ??=
-                                                PageController(initialPage: 0),
-                                            scrollDirection: Axis.horizontal,
-                                            children: [
-                                              Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    await Navigator.push(
-                                                      context,
-                                                      PageTransition(
-                                                        type: PageTransitionType
-                                                            .fade,
-                                                        child:
-                                                            FlutterFlowExpandedImageView(
-                                                          image:
-                                                              CachedNetworkImage(
-                                                            imageUrl:
-                                                                valueOrDefault<
-                                                                    String>(
-                                                              widget
-                                                                  .propertyRef!
-                                                                  .mainImage,
-                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
-                                                            ),
-                                                            fit: BoxFit.contain,
-                                                          ),
-                                                          allowRotation: false,
-                                                          tag: valueOrDefault<
-                                                              String>(
+                                        PageView(
+                                          controller: pageViewController1 ??=
+                                              PageController(initialPage: 0),
+                                          scrollDirection: Axis.horizontal,
+                                          children: [
+                                            Align(
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  await Navigator.push(
+                                                    context,
+                                                    PageTransition(
+                                                      type: PageTransitionType
+                                                          .fade,
+                                                      child:
+                                                          FlutterFlowExpandedImageView(
+                                                        image:
+                                                            CachedNetworkImage(
+                                                          imageUrl:
+                                                              valueOrDefault<
+                                                                  String>(
                                                             widget.propertyRef!
                                                                 .mainImage,
                                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
                                                           ),
-                                                          useHeroAnimation:
-                                                              true,
+                                                          fit: BoxFit.contain,
                                                         ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: Hero(
-                                                    tag: valueOrDefault<String>(
-                                                      widget.propertyRef!
-                                                          .mainImage,
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
-                                                    ),
-                                                    transitionOnUserGestures:
-                                                        true,
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16),
-                                                      child: CachedNetworkImage(
-                                                        imageUrl:
-                                                            valueOrDefault<
-                                                                String>(
+                                                        allowRotation: false,
+                                                        tag: valueOrDefault<
+                                                            String>(
                                                           widget.propertyRef!
                                                               .mainImage,
                                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
                                                         ),
-                                                        width: double.infinity,
-                                                        height: double.infinity,
-                                                        fit: BoxFit.cover,
+                                                        useHeroAnimation: true,
                                                       ),
+                                                    ),
+                                                  );
+                                                },
+                                                child: Hero(
+                                                  tag: valueOrDefault<String>(
+                                                    widget
+                                                        .propertyRef!.mainImage,
+                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
+                                                  ),
+                                                  transitionOnUserGestures:
+                                                      true,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16),
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: valueOrDefault<
+                                                          String>(
+                                                        widget.propertyRef!
+                                                            .mainImage,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/oowrriphtb4n/hero_home@3x.jpg',
+                                                      ),
+                                                      width: double.infinity,
+                                                      height: double.infinity,
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                              Image.network(
-                                                'https://picsum.photos/seed/550/600',
-                                                width: 100,
-                                                height: 100,
-                                                fit: BoxFit.cover,
-                                              ),
-                                              Image.network(
-                                                'https://picsum.photos/seed/611/600',
-                                                width: 100,
-                                                height: 100,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                            Image.asset(
+                                              'assets/images/closet.jpeg',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                            Image.asset(
+                                              'assets/images/stove.jpeg',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ],
                                         ),
                                         Align(
                                           alignment: AlignmentDirectional(0, 1),
@@ -359,9 +351,12 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                 radius: 16,
                                                 dotWidth: 16,
                                                 dotHeight: 16,
-                                                dotColor: Color(0xFF9E9E9E),
+                                                dotColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .dark600,
                                                 activeDotColor:
-                                                    Color(0xFF3F51B5),
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 paintStyle: PaintingStyle.fill,
                                               ),
                                             ),
@@ -1269,7 +1264,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           options: FFButtonOptions(
                             width: 130,
                             height: 50,
-                            color: Color(0xFF4B39EF),
+                            color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Lexend Deca',

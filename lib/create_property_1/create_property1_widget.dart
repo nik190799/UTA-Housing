@@ -2,6 +2,7 @@ import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
 import '../create_property_2/create_property2_widget.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -24,8 +25,9 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
   bool isMediaUploading = false;
   String uploadedFileUrl = '';
 
-  TextEditingController? propertyNameController;
+  String? propertyNameTestValue;
   TextEditingController? propertyAddressController;
+  String? unitTypeValue;
   TextEditingController? propertyNeighborhoodController;
   TextEditingController? propertyDescriptionController;
   AmenititiesRecord? amenitiesRecord;
@@ -36,7 +38,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
   void initState() {
     super.initState();
     propertyAddressController = TextEditingController();
-    propertyNameController = TextEditingController();
     propertyNeighborhoodController = TextEditingController();
     propertyDescriptionController = TextEditingController();
   }
@@ -44,7 +45,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
   @override
   void dispose() {
     propertyAddressController?.dispose();
-    propertyNameController?.dispose();
     propertyNeighborhoodController?.dispose();
     propertyDescriptionController?.dispose();
     super.dispose();
@@ -98,6 +98,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                         final selectedMedia =
                             await selectMediaWithSourceBottomSheet(
                           context: context,
+                          imageQuality: 80,
                           allowPhoto: true,
                           backgroundColor:
                               FlutterFlowTheme.of(context).tertiaryColor,
@@ -166,77 +167,54 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            'PROPERTY NAME',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText2
-                                .override(
-                                  fontFamily: 'Urbanist',
-                                  color: FlutterFlowTheme.of(context).gray600,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: Text(
+                              'PROPERTY NAME',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText2
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
                           ),
+                          if (Theme.of(context).brightness == Brightness.light)
+                            FlutterFlowDropDown<String>(
+                              options: [
+                                'Meadow Run',
+                                'Arbor Oaks',
+                                'University Village',
+                                'Heatherway',
+                                'Deans',
+                                '404 Border Apts',
+                                'Timber Brook'
+                              ],
+                              onChanged: (val) =>
+                                  setState(() => propertyNameTestValue = val),
+                              width: 180,
+                              height: 50,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                              hintText: 'Please select...',
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              elevation: 2,
+                              borderColor: Colors.transparent,
+                              borderWidth: 0,
+                              borderRadius: 0,
+                              margin:
+                                  EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                              hidesUnderline: true,
+                            ),
                         ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                      child: TextFormField(
-                        controller: propertyNameController,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          hintText: 'Something Catchy...',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .title2
-                              .override(
-                                fontFamily: 'Urbanist',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          errorBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          focusedErrorBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
-                        ),
-                        style: FlutterFlowTheme.of(context).title2,
                       ),
                     ),
                     Padding(
@@ -322,15 +300,43 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            'NEIGHBORHOOD',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: Text(
+                              'UNIT TYPE',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText2
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                          FlutterFlowDropDown<String>(
+                            options: ['1 BHK', '2 BHK', '3 BHK', '4 BHK'],
+                            onChanged: (val) =>
+                                setState(() => unitTypeValue = val),
+                            width: 180,
+                            height: 50,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyText1
                                 .override(
                                   fontFamily: 'Urbanist',
-                                  color: FlutterFlowTheme.of(context).gray600,
-                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                 ),
+                            hintText: 'Please select...',
+                            fillColor:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            elevation: 2,
+                            borderColor: Colors.transparent,
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            margin:
+                                EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                            hidesUnderline: true,
                           ),
                         ],
                       ),
@@ -419,7 +425,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                         controller: propertyDescriptionController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Neighborhood or city…',
+                          hintText: 'Describe the surrounding neighborhood...',
                           hintStyle: FlutterFlowTheme.of(context).bodyText1,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
@@ -492,7 +498,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                             onPressed: () async {
                               final propertiesCreateData =
                                   createPropertiesRecordData(
-                                propertyName: propertyNameController!.text,
+                                propertyName: propertyNameTestValue,
                                 propertyDescription:
                                     propertyDescriptionController!.text,
                                 mainImage: uploadedFileUrl,
@@ -500,8 +506,7 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                                     propertyAddressController!.text,
                                 isDraft: true,
                                 userRef: currentUserReference,
-                                propertyNeighborhood:
-                                    propertyDescriptionController!.text,
+                                propertyNeighborhood: unitTypeValue,
                                 lastUpdated: getCurrentTimestamp,
                               );
                               var propertiesRecordReference =
